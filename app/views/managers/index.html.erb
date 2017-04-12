@@ -1,0 +1,7 @@
+<h1>This is the Index page</h1>
+
+<% @managers.each do |manager| %>
+
+	<h2><%= link_to manager.name, manager %></h2>
+
+<% end %>
