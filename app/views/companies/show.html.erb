@@ -1,0 +1,16 @@
+<h1>The Show page</h1>
+<h3><%= @company.name %></h3>
+<p><%= @company.address %></p>
+<p><%= @company.city %></p>
+<p><%= @company.state %></p>
+<p><%= @company.zip %></p>
+<p><%= @company.phone %></p>
+<p><%= @company.fax %></p>
+
+
+<%= link_to "Back", root_path, class: "btn btn-default" %>
+
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_company_path, class: "btn btn-default" %>
+	<%= link_to 'Delete', company_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+<% end %>

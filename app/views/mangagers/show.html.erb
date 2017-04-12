@@ -1,0 +1,12 @@
+<h1>The Show page</h1>
+<h3><%= @manager.name %></h3>
+<p><%= @manager.cell_phone %></p>
+<p><%= @manager.email %></p>
+
+
+<%= link_to "Back", root_path, class: "btn btn-default" %>
+
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_manager_path, class: "btn btn-default" %>
+	<%= link_to 'Delete', manager_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+<% end %>

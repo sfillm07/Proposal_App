@@ -1,0 +1,7 @@
+<%= simple_form_for @manager do |f| %>
+  <%= f.input :name %>
+  <%= f.input :cell_phone %>
+  <%= f.input :email %>
+  <%= f.button :submit, class: "btn btn-default" %>
+<% end %>
+<%= link_to 'Cancel', root_path, class: "btn btn-default" %>
