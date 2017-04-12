@@ -1,4 +1,4 @@
-class MangagersController < ApplicationController
+class ManagersController < ApplicationController
 
 	before_action :find_manager, only: [:show, :edit, :update, :destroy]
 
@@ -42,10 +42,10 @@ class MangagersController < ApplicationController
 	private
 
 	def manager_params
-		params.require(:manager).permit(:name, :cell_phone, :email)
+		params.require(:manager).permit(:name, :cell_phone, :email, :company_id)
 	end
 
 	def find_manager
-		@manager = manager.find(params[:id])
+		@manager = Manager.find(params[:id])
 	end
 end
