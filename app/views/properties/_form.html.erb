@@ -1,0 +1,10 @@
+<%= simple_form_for @property do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip %>
+  <%= f.association :manager, prompt: "Choose a Manager" %>
+  <%= f.button :submit, class: "btn btn-default" %>
+<% end %>
+<%= link_to 'Cancel', root_path, class: "btn btn-default" %>

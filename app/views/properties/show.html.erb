@@ -1,0 +1,16 @@
+<h1>The Show page</h1>
+<h3><%= @property.name %></h3>
+<p><%= @property.address %></p>
+<p><%= @property.city %></p>
+<p><%= @property.state %></p>
+<p><%= @property.zip %></p>
+<p><%= @property.manager.name %></p>
+<p><%= @property.manager.company.name %></p>
+
+
+<%= link_to "Back", root_path, class: "btn btn-default" %>
+
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_property_path, class: "btn btn-default" %>
+	<%= link_to 'Delete', property_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+<% end %>

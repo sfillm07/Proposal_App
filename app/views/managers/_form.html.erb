@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :cell_phone %>
   <%= f.input :email %>
-  <%= f.association :company, label: 'Company', prompt: "Choose a Company" %>
+  <%= f.association :company, prompt: "Choose a Company" %>
   <%= f.button :submit, class: "btn btn-default" %>
 <% end %>
 <%= link_to 'Cancel', root_path, class: "btn btn-default" %>
