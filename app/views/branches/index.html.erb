@@ -1,0 +1,9 @@
+<h1>Branches Index Page</h1>
+
+<% @branches.each do |branch| %>
+
+	<h2><%= link_to branch.branch_name, branch %></h2>
+
+<% end %>
+
+<%= link_to 'New Branch', new_branch_path, class: "btn btn-default" %>

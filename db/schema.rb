@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412150718) do
+ActiveRecord::Schema.define(version: 20170421185832) do
+
+  create_table "branches", force: :cascade do |t|
+    t.string   "branch_name"
+    t.string   "branch_address"
+    t.string   "branch_city"
+    t.string   "branch_state"
+    t.string   "branch_zip"
+    t.string   "branch_phone"
+    t.string   "branch_fax"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +56,24 @@ ActiveRecord::Schema.define(version: 20170412150718) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_properties_on_manager_id"
+  end
+
+  create_table "properties_proposal_items", id: false, force: :cascade do |t|
+    t.integer "property_id",      null: false
+    t.integer "proposal_item_id", null: false
+    t.index ["property_id", "proposal_item_id"], name: "proposal_items_properties_index", unique: true
+  end
+
+  create_table "proposal_items", force: :cascade do |t|
+    t.string   "item_name"
+    t.float    "item_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
