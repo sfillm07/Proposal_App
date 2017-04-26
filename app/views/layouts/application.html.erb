@@ -15,8 +15,8 @@
   				<ul class="nav navbar-nav navbar-right">
   					<% if user_signed_in? %>
               <li><%= link_to 'Branch', branches_path %></li>
-              <li><%= link_to 'Company', companies_path %></li>
-              <li><%= link_to 'Manager', managers_path %></li>
+              <li><%= link_to 'Management Company', companies_path %></li>
+              <li><%= link_to 'Property Manager', managers_path %></li>
               <li><%= link_to 'Property', properties_path %></li>
   						<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
   						<% else %>
