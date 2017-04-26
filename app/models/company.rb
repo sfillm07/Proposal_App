@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-	has_many :managers
+	has_many :manager
 
-	accepts_nested_attributes_for :managers
+	accepts_nested_attributes_for :manager
 end

@@ -1,0 +1,16 @@
+<h1>The Show page</h1>
+<h3><%= @branch.branch_name %></h3>
+<p><%= @branch.branch_address %></p>
+<p><%= @branch.branch_city %></p>
+<p><%= @branch.branch_state %></p>
+<p><%= @branch.branch_zip %></p>
+<p><%= @branch.branch_phone %></p>
+<p><%= @branch.branch_fax %></p>
+
+
+<%= link_to "Back", branches_path, class: "btn btn-default" %>
+
+<% if user_signed_in? %>
+	<%= link_to 'Edit', edit_branch_path, class: "btn btn-default" %>
+	<%= link_to 'Delete', branch_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+<% end %>

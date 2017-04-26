@@ -14,9 +14,10 @@
   			<div class="navbar-brand"><%= link_to "Company", root_path %></div>
   				<ul class="nav navbar-nav navbar-right">
   					<% if user_signed_in? %>
-              <li><%= link_to 'New Company', new_company_path %></li>
-              <li><%= link_to 'New Manager', new_manager_path %></li>
-              <li><%= link_to 'New Property', new_property_path %></li>
+              <li><%= link_to 'Branch', branches_path %></li>
+              <li><%= link_to 'Management Company', companies_path %></li>
+              <li><%= link_to 'Property Manager', managers_path %></li>
+              <li><%= link_to 'Property', properties_path %></li>
   						<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
   						<% else %>
   						<li><%= link_to 'Sign Up', new_user_registration_path %></li>

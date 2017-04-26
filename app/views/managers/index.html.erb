@@ -1,7 +1,9 @@
-<h1>This is the Index page</h1>
+<h1>This is the Manager Index page</h1>
 
 <% @managers.each do |manager| %>
 
 	<h2><%= link_to manager.name, manager %></h2>
 
 <% end %>
+
+<%= link_to 'New Manager', new_manager_path, class: "btn btn-default" %>

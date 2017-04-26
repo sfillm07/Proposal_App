@@ -1,0 +1,11 @@
+<%= simple_form_for @branch do |f| %>
+  <%= f.input :branch_name %>
+  <%= f.input :branch_address, label: 'Address' %>
+  <%= f.input :branch_city, label: 'City' %>
+  <%= f.input :branch_state, label: 'State' %>
+  <%= f.input :branch_zip, label: 'Zip Code' %>
+  <%= f.input :branch_phone, label: 'Phone Number' %>
+  <%= f.input :branch_fax, label: 'Fax Number' %>
+  <%= f.button :submit, class: "btn btn-default" %>
+<% end %>
+<%= link_to 'Cancel', branches_path, class: "btn btn-default" %>

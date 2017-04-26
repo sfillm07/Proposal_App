@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 	resources :companies
 	resources :managers
 	resources :properties
+	resources :branches
+	resources :proposals
+	resources :proposal_items
 
-	root 'companies#index'
+	root 'static_pages#home'
 end
