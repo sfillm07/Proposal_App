@@ -7,7 +7,7 @@ class ProposalItemsController < ApplicationController
 	end
 
 	def create
-		@proposal_item = ProposalItem.new(proposal_item_params)
+		@proposal_item = ProposalItem.new(item_params)
 
 		if @proposal_item.save
 			redirect_to @proposal_item, notice: "Successfully created new proposal item"
@@ -22,7 +22,7 @@ class ProposalItemsController < ApplicationController
 
 	private
 
-	def proposal_item_params
+	def item_params
 		params.require(:proposal_item).permit(:name, :price)
 	end
 
@@ -31,4 +31,3 @@ class ProposalItemsController < ApplicationController
 	end
 
 end
-

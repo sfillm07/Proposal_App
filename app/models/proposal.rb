@@ -1,5 +1,5 @@
 class Proposal < ApplicationRecord
-	has_many :proposal_item
+	has_many :proposal_items
 
-	accepts_nested_attributes_for :proposal_item, :reject_if => :all_blank, :allow_destroy => true
+	accepts_nested_attributes_for :proposal_items, :allow_destroy => true
 end
