@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170425151442) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "branches", force: :cascade do |t|
     t.string   "branch_name"
     t.string   "branch_address"
@@ -43,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170425151442) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_managers_on_company_id"
+    t.index ["company_id"], name: "index_managers_on_company_id", using: :btree
   end
 
   create_table "properties", force: :cascade do |t|
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170425151442) do
     t.string   "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manager_id"], name: "index_properties_on_manager_id"
+    t.index ["manager_id"], name: "index_properties_on_manager_id", using: :btree
   end
 
   create_table "properties_proposal_items", id: false, force: :cascade do |t|
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 20170425151442) do
     t.integer  "proposal_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["proposal_id"], name: "index_proposal_items_on_proposal_id"
+    t.index ["proposal_id"], name: "index_proposal_items_on_proposal_id", using: :btree
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -92,8 +95,10 @@ ActiveRecord::Schema.define(version: 20170425151442) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "managers", "companies"
+  add_foreign_key "properties", "managers"
 end
