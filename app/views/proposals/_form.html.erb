@@ -2,12 +2,12 @@
 <%= f.input :date %>
   <h3>Tasks</h3>
   <div id='proposalitem', class='row'>
-    <%= f.simple_fields_for :proposal_items do |proposal_item| %>
+    <%= f.simple_fields_for :proposal_item do |proposal_item| %>
       <%= render 'proposal_item_fields', :f => proposal_item %>
     <% end %>
     <div class='links'>
-      <%= link_to_add_association 'add proposal item', f, :proposal_items %>
+      <%= link_to_add_association 'add proposal item', f, :proposal_item, class: "btn btn-default" %>
     </div>
   </div>
-    <%= f.submit 'Save' %>
+    <%= f.submit 'Save', class: "btn btn-default" %>
 <% end %>
