@@ -7,6 +7,10 @@ end
 
 ruby '2.3.3'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'rails', '~> 5.0', '>= 5.0.2'
 gem 'pg'
 gem 'puma', '~> 3.0'
