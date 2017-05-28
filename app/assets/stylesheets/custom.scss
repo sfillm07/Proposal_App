@@ -1,0 +1,22 @@
+@import "bootstrap-sprockets";
+@import "variables";
+@import "bootstrap";
+@import "bootswatch";
+
+
+/* miscellaneous */
+
+abbr[title="required"] {
+  display: none;
+}
+
+/* panels */
+
+.panel .panel-heading {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.panel .panel-footer {
+  margin-bottom: 0;
+}
