@@ -8,7 +8,8 @@ class ProposalsController < ApplicationController
 		@proposal = Proposal.new(proposal_params)
 
 		if @proposal.save
-			redirect_to @proposal, notice: "Successfully created new proposal"
+			redirect_to @proposal
+			flash[:notice] = "Successfully created new proposal"
 		else
 			render 'new'
 		end
@@ -17,14 +18,10 @@ class ProposalsController < ApplicationController
 	def show
 	end
 
-
-
-
 	private
 
 	def proposal_params
 		proposal_params.require(:proposal).permit(:date, proposal_items_attributes: [:id, :name, :price, :_destroy])
 	end
 
-	
 end

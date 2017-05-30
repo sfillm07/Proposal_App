@@ -17,7 +17,8 @@ class ManagersController < ApplicationController
 		@manager = Manager.new(manager_params)
 
 		if @manager.save
-			redirect_to @manager, notice: "Successfully created new manager"
+			redirect_to @manager
+			flash[:notice] = "Successfully created new manager"
 		else
 			render 'new'
 		end
@@ -28,7 +29,8 @@ class ManagersController < ApplicationController
 
 	def update
 		if @manager.update(manager_params)
-			redirect_to @manager, notice: "Successfully updated manager"
+			redirect_to @manager
+			flash[:notice] = "Successfully updated manager"
 		else
 			render 'edit'
 		end
@@ -36,7 +38,8 @@ class ManagersController < ApplicationController
 
 	def destroy
 		@manager.destroy
-		redirect_to root_path, notice: "Successfully destroyed manager"
+		redirect_to root_path
+		flash[:alert] = "Successfully destroyed manager"
 	end
 
 	private

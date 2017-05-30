@@ -10,7 +10,8 @@ class ProposalItemsController < ApplicationController
 		@proposal_item = ProposalItem.new(item_params)
 
 		if @proposal_item.save
-			redirect_to @proposal_item, notice: "Successfully created new proposal item"
+			redirect_to @proposal_item
+			flash[:notice] = "Successfully created new proposal item"
 		else
 			render 'new'
 		end

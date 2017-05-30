@@ -17,7 +17,8 @@ class CompaniesController < ApplicationController
 		@company = Company.new(company_params)
 
 		if @company.save
-			redirect_to @company, notice: "Successfully created new company"
+			redirect_to @company
+			flash[:notice] = "Successfully created new company"
 		else
 			render 'new'
 		end
@@ -28,7 +29,8 @@ class CompaniesController < ApplicationController
 
 	def update
 		if @company.update(company_params)
-			redirect_to @company, notice: "Successfully updated company"
+			redirect_to @company
+			flash[:notice] = "Successfully updated company"
 		else
 			render 'edit'
 		end
@@ -36,7 +38,8 @@ class CompaniesController < ApplicationController
 
 	def destroy
 		@company.destroy
-		redirect_to root_path, notice: "Successfully destroyed company"
+		redirect_to root_path
+		flash[:alert] = "Successfully destroyed company"
 	end
 
 	private
