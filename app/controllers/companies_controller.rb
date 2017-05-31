@@ -1,61 +1,52 @@
 class CompaniesController < ApplicationController
 
-	before_action :find_company, only: [:show, :edit, :update, :destroy]
+  before_action :find_company, only: [:show, :edit, :update, :destroy]
 
-	def index
-		@companies = Company.all
-	end
+  def index
+    @companies = Company.all
+  end
 
-	def show
-	end
+  def show
+  end
 
-	def new
-		@company = Company.new
-	end
+  def new
+    @company = Company.new
+  end
 
-	def create
-		@company = Company.new(company_params)
+  def create
+    @company = Company.new(company_params)
 
-		if @company.save
-			redirect_to @company
-			flash[:notice] = "Successfully created new company"
-		else
-			render 'new'
-		end
-	end
+    if @company.save
+      redirect_to @company, success: "Successfully created new company"
+    else
+      render 'new'
+    end
+  end
 
-	def edit
-	end
+  def edit
+  end
 
-	def update
-		if @company.update(company_params)
-			redirect_to @company
-			flash[:notice] = "Successfully updated company"
-		else
-			render 'edit'
-		end
-	end
+  def update
+    if @company.update(company_params)
+      redirect_to @company, success: "Successfully updated company"
+    else
+      render 'edit'
+    end
+  end
 
-	def destroy
-		@company.destroy
-		redirect_to root_path
-		flash[:alert] = "Successfully destroyed company"
-	end
+  def destroy
+    @company.destroy
+    redirect_to root_path, alert: "Successfully destroyed company"
+  end
 
-	private
+  private
 
-	def company_params
-		params.require(:company).permit(:name, :address, :city, :state, :zip, :phone, :fax)
-	end
+  def company_params
+    params.require(:company).permit(:name, :address, :city, :state, :zip, :phone, :fax)
+  end
 
-	def find_company
-		@company = Company.find(params[:id])
-	end
-
-
-
-
-
-
+  def find_company
+    @company = Company.find(params[:id])
+  end
 
 end
