@@ -39,8 +39,10 @@
       </div>
     </nav>
 
-  	<div class="container">
-    	<%= yield %>
+    <%= render "layouts/flash_alerts" %>
+
+    <div class="container">
+      <%= yield %>
     </div>
 
   </body>
