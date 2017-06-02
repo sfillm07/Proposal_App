@@ -10,27 +10,19 @@
       <a class="navbar-brand" href="#">Brand</a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <p class="navbar-text">Welcome, <%= current_user.name %></p>
+          <li><a href="#" class="navbar-link no-pointer">Welcome, <%= current_user.name %></a></li>
+          <li><%= link_to 'Branch', branches_path %></li>
+          <li><%= link_to 'Management Company', companies_path %></li>
+          <li><%= link_to 'Property Manager', managers_path %></li>
+          <li><%= link_to 'Property', properties_path %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
         <% end %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
-          <ul class="dropdown-menu">
-            <% if user_signed_in? %>
-              <li><%= link_to 'Branch', branches_path %></li>
-              <li><%= link_to 'Management Company', companies_path %></li>
-              <li><%= link_to 'Property Manager', managers_path %></li>
-              <li><%= link_to 'Property', properties_path %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
-            <% else %>
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-              <li><%= link_to 'Sign In', new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </li>
       </ul>
     </div>
   </div>
