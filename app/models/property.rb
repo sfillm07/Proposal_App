@@ -1,4 +1,4 @@
 class Property < ApplicationRecord
   belongs_to :manager
-  has_many :proposal
+  has_many :proposals
 end

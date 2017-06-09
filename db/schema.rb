@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603044553) do
+ActiveRecord::Schema.define(version: 20170607061659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(version: 20170603044553) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lineitem_proposals", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "lineitem_id"
+    t.integer  "proposal_id"
+  end
+
+  create_table "lineitems", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.integer  "price"
+  end
+
   create_table "managers", force: :cascade do |t|
     t.integer  "company_id"
     t.string   "name"
@@ -61,22 +75,7 @@ ActiveRecord::Schema.define(version: 20170603044553) do
     t.index ["manager_id"], name: "index_properties_on_manager_id", using: :btree
   end
 
-  create_table "properties_proposal_items", id: false, force: :cascade do |t|
-    t.integer "property_id",      null: false
-    t.integer "proposal_item_id", null: false
-  end
-
-  create_table "proposal_items", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
-    t.integer  "proposal_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["proposal_id"], name: "index_proposal_items_on_proposal_id", using: :btree
-  end
-
   create_table "proposals", force: :cascade do |t|
-    t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :properties
   resources :branches
   resources :proposals
-  resources :proposal_items
+  resources :lineitems
 
   root 'static_pages#home'
 end

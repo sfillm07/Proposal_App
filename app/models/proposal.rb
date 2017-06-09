@@ -1,4 +1,5 @@
 class Proposal < ApplicationRecord
-  has_many :proposal_item, inverse_of: :proposal
-  accepts_nested_attributes_for :proposal_item, allow_destroy: true
+  has_many :lineitem_proposals   ## Added association
+  has_many :lineitems, :through => :lineitem_proposals
+  accepts_nested_attributes_for :lineitem_proposals
 end
