@@ -1,12 +1,20 @@
+<h3>Line Items</h3>
 <%= simple_form_for @proposal do |f| %>
-  <h3>Tasks</h3>
-  <div id='tasks'>
-    <%= f.simple_fields_for :lineitems do |lineitem| %>
+  <table>
+    <thead class="table-head">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody class="lineitems">
+      <%= f.simple_fields_for :lineitems do |lineitem| %>
       <%= render 'lineitem_fields', f: lineitem %>
     <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'add line item', f, :lineitems %>
-    </div>
+    </tbody>
+  </table>
+  <div class='links'>
+    <%= link_to_add_association "Add", f, :lineitems, class: "btn btn-default", data: {"association-insertion-node" => "tbody.lineitems", "association-insertion-method" => "append"} %>
   </div>
 <% end %>
 

@@ -10,6 +10,10 @@ abbr[title="required"] {
   display: none;
 }
 
+.task-button {
+  margin-bottom: 5px;
+}
+
 /* panels */
 
 .panel .panel-heading {
@@ -29,6 +33,30 @@ abbr[title="required"] {
 
 //This removes the hover and all other events from a link - used for name element
 .no-pointer {
-    pointer-events: none;
+  pointer-events: none;
 }
+
+/* line items */
+
+tr {
+  height: 30px;
+}
+
+th:first-child {
+  width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

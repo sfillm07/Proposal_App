@@ -2,6 +2,7 @@ class ProposalsController < ApplicationController
 
   def new
     @proposal = Proposal.new
+    @manager = Manager.new
   end
 
   def create

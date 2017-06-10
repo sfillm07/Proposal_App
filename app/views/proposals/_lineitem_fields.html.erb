@@ -1,5 +1,9 @@
-<div class='nested-fields'>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= link_to_remove_association "Remove", f %>
-</div>
+<tr class="nested-fields">
+  <td><%= f.input :name, label: false %></td>
+  <td><%= f.input :price, label: false %></td>
+  <td><%= link_to_remove_association "", f, class: "glyphicon glyphicon-remove" %></td>
+</tr>
+
+
+
+

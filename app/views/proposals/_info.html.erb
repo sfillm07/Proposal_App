@@ -1,0 +1,4 @@
+<h3>Property Info</h3>
+<%= simple_form_for @manager do |f| %>
+  <%= f.input :name, label: 'Manager Name', collection: Manager.all() %>
+<% end %>
